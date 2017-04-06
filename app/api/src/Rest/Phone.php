@@ -115,15 +115,15 @@ class Phone {
     public function read($id){
         if(empty($id)){
             echo json_encode([
-              "user" => []
+              "phone" => []
             ]);
         }
 
         $dao = Factory::createPhoneDao();
-        $user = $dao->byId($id, true);
+        $phone = $dao->byId($id, true);
 
         echo json_encode([
-            "user" => $user
+            "phone" => $phone
         ]);
     }
 }

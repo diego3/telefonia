@@ -134,10 +134,9 @@ class Phone {
       return $results;
   }
 
-  public function listByUserAndPassword($userEmail, $userPass){
-        $statement = $this->conn->prepare("select * from user where email = :email and password = :password");
-        $statement->bindValue(":email", $userEmail);
-        $statement->bindValue(":password", $userPass);
+  public function byId($phoneid){
+        $statement = $this->conn->prepare("select * from phones where telefoneid = :id");
+        $statement->bindValue(":id", $phoneid);
         $statement->execute();
 
         $row = $statement->fetch(\PDO::FETCH_OBJ);
@@ -145,12 +144,11 @@ class Phone {
           return null;
         }
 
-        $user = new PhoneModel();
-        $user->setId($row->userid);
-        $user->setName($row->name);
-        $user->setEmail($row->email);
-        $user->setPassword($row->password);
-        return $user;
+        $phone = new PhoneModel();
+        $phone->setId($row->telefoneid);
+        $phone->setNumber($row->phonenum);
+        $phone->setUser($row->userid);
+        return $phone;
   }
 
 }
