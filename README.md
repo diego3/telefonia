@@ -1,18 +1,18 @@
-First of all, To you be able to run the phpunit tests the data base need to be created!
+First of all, in order to be able to run the phpunit tests you need to create the data base schema 
 
 Without that the tests will fail!
 
 How to run the phpunit tests
 ===========
 ```bash
-	phpunit app/api/tests  --testdox
+phpunit app/api/tests  --testdox
 ```
 
 
 How to run the phpunit code coverage
 ===========
 ```bash
-	phpunit app/api/tests  --coverage-html ./phpcoverage
+phpunit app/api/tests  --coverage-html ./phpcoverage
 ```
 
 
