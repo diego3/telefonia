@@ -12,16 +12,14 @@ use Httpful\Request;
 class PhoneTest extends TestCase
 {
      //http://phphttpclient.com/
-     protected $host = "http://localhost/api/";
+     protected $host = "http://localhost:8542/api/";
 
-	   public function testSerchEndPoint(){
-          //$rest = new Phone();
-          //TODO use a http client to test json responses and http status
-          //$rest->search("q=diego");
+     public function testSerchEndPointShouldReturn4Phones(){
           $resource = "phone/search?q=diego";
           $response = Request::get($this->host.$resource)->expectsJson()->send();
 
-          $this->assertEquals(true, true);
+          $phones = $response->body->result;
+          $this->assertEquals(4, count($phones));
      }
 
 }
