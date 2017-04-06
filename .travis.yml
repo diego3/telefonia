@@ -4,8 +4,8 @@ php:
 - 5.5
 
 before_install:
-  - mysql -e 'CREATE DATABASE telefonia;'
-  
+  - mysql -u root < schema.sql
+
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
