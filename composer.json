@@ -1,12 +1,12 @@
 {
   "autoload": {
       "psr-4": {
-        "PhoneApp\\": "app/"
+        "PhoneApp\\": "app/api/src"
       }
   },
   "autoload-dev": {
       "psr-4": {
-        "PhoneApp\\Tests\\": "app/tests"
+        "PhoneApp\\Tests\\": "app/api/tests"
       }
   },
   "require-dev":{
