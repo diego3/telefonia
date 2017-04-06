@@ -71,7 +71,7 @@ class User {
         ]);
     }
 
-    public function list($id){
+    public function read($id){
         if(empty($id)){
             echo json_encode([
               "user" => []

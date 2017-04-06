@@ -47,10 +47,10 @@ class Phone {
         $userid = $_POST["user"];
 
         if(empty($number)){
-            
+
         }
         if(empty($userid)){
-                
+
         }
 
         $dao = Factory::createPhoneDao();
@@ -112,7 +112,7 @@ class Phone {
         ]);
     }
 
-    public function list($id){
+    public function read($id){
         if(empty($id)){
             echo json_encode([
               "user" => []

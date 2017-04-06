@@ -12,4 +12,13 @@
     syntaxCheck="true"
 >
     
+<filter>
+  <whitelist processUncoveredFilesFromWhitelist="true">
+    <directory suffix=".php">app/api/src</directory>
+    <exclude>
+      <directory suffix=".php">app/api/tests</directory>
+    </exclude>
+  </whitelist>
+</filter>
+
 </phpunit>

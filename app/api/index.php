@@ -55,7 +55,7 @@ switch ($method) {
       $rest->insert();
       break;
   case 'GET':
-      $rest->list($id);
+      $rest->read($id);
       break;
   case 'PUT':
       $rest->update($id);
