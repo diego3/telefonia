@@ -46,6 +46,13 @@ class Phone {
         $number = $_POST["number"];
         $userid = $_POST["user"];
 
+        if(empty($number)){
+            
+        }
+        if(empty($userid)){
+                
+        }
+
         $dao = Factory::createPhoneDao();
         $phone = new PhoneModel();
 

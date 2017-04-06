@@ -1,5 +1,6 @@
 <?php
 
+namespace PhoneApp;
 
 class Email
 {
@@ -25,7 +26,7 @@ class Email
     private function ensureIsValidEmail($email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf(
                     '"%s" is not a valid email address',
                     $email
