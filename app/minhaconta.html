@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Agenda Telefônica</title>
+
+    <!-- Bootstrap -->
+    <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/"><i class="glyphicon glyphicon-earphone"></i>
+                  Agenda Telefônica</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="row loginresiterrow" style="display:none;">
+                <div class="col-md-6">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h3 class="panel-title"><i class="glyphicon glyphicon-user"></i> Alterar seus dados!
+                          </h3>
+                      </div>
+                      <div class="panel-body">
+                        <form>
+                            <input type="hidden" name="userid" id="userid">
+
+                            <div class="form-group">
+                              <label for="name_id">Nome</label>
+                              <input type="email" name="name" class="form-control" id="name_id" placeholder="Nome completo">
+                              <p class="help-block">Campo obrigatório</p>
+                            </div>
+                            <div class="form-group">
+                              <label for="email_id">E-mail</label>
+                              <input type="email" name="email" class="form-control" id="email_id" placeholder="E-mail">
+                              <p class="help-block">Campo obrigatório</p>
+                            </div>
+                            <div class="form-group">
+                              <label for="password_id">Senha</label>
+                              <input type="password" name="password" class="form-control" id="password_id" placeholder="Senha">
+                              <p class="help-block">Campo obrigatório</p>
+                            </div>
+
+                            <button type="button" id="update_user_btn" class="btn btn-default"> Salvar</button>
+                          </form>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-success" id="user_success_alert">
+                        <p>Dados atualizados com successo!</p>
+                    </div>
+                    <div class="alert alert-danger" id="user_danger_alert">
+                        <p>Ops, não foi possível altualizar</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row userdata">
+              <div class="col-md-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-user"></i> Meus Dados
+                      <span class="pull-right" id="useredit"> <i class="glyphicon glyphicon-pencil"></i> Editar</span>
+                    </div>
+                    <div class="panel-body">
+                        <div id="userdatas"></div>
+
+
+
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row userphones">
+              <div class="col-md-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-earphone"></i> Meus Telefones
+                    </div>
+                    <div class="panel-body">
+                      <button type="button" class="btn btn-primary pull-right" id="add_phone"> Add + </button>
+                      <table class="table table-condensed" id="phone_table">
+                          <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Número</th>
+                                <th>Ações</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../src/app.js"></script>
+    <script src="../src/minhaconta.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  height: 800px;
+  overflow-y: hidden;
+  background: url("../img/bg-pattern.png"), #7b4397;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*color: white;*/
+}
+
+.header-content {
+    padding-top:66px !important;
+}
+
+header h1 {
+  color: #ffffff;
+}
+
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+a:hover,
+a:focus {
+}
+
+.white, .white a {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.loginresiterrow, .userdata{
+   padding-top: 80px;
+}
+
+.help-block{
+  display:none;
+  color: #ED4337;
+  font-weight: bold;
+}
+
+.alert, .update_phone{
+  display:none;
+}
+
+#useredit{
+    cursor:pointer;
+}
+
+#add_phone{
+  margin-bottom: 5px;
+}
+
+#search_row{
+    margin-top: 15px;
+    display:none;
+}

@@ -1,0 +1,15 @@
+{
+  "autoload": {
+      "psr-4": {
+        "PhoneApp\\": "app/"
+      }
+  },
+  "autoload-dev": {
+      "psr-4": {
+        "PhoneApp\\Tests\\": "app/tests"
+      }
+  },
+  "require-dev":{
+      "phpunit/phpunit": "5.5.*"
+  }
+}
