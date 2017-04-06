@@ -10,7 +10,7 @@ before_install:
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
-  - php -S 127.0.0.1:8452 -t app/api
+  - php -S 127.0.0.1:8542 -t app/api
 
 services:
   - mysql
