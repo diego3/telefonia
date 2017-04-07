@@ -27,13 +27,12 @@ class Phone {
      * Traz todos telefones de uma determinado usuário
      */
     public function user(){
-        //echo json_encode(["session" => $_SESSION]); exit;
         if(!isset($_SESSION["userid"])){
             echo json_encode([
                "phones" => [],
                "auth_error" => "Invalid user id"
             ]);
-            exit;
+            return;
         }
 
         $dao = Factory::createPhoneDao();
@@ -79,7 +78,7 @@ class Phone {
                 "success" => false,
                 "msg" => "validation"
             ]);
-            exit;
+            return;
         }
 
          $dao = Factory::createPhoneDao();
@@ -101,7 +100,7 @@ class Phone {
                 "success" => false,
                 "msg" => "id cant be empty"
             ]);
-            exit;
+            return;
         }
 
         $dao = Factory::createPhoneDao();
@@ -119,8 +118,10 @@ class Phone {
     public function read($id){
         if(empty($id)){
             echo json_encode([
-              "phone" => []
+              "phone" => [],
+              "error" => "Invalid phone id"
             ]);
+            return;
         }
 
         $dao = Factory::createPhoneDao();

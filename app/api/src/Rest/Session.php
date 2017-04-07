@@ -28,7 +28,7 @@ class Session {
               "success" => true,
               "email" => $user->getEmail()
             ]);
-            exit;
+            return;
         }
 
         echo json_encode([
@@ -47,7 +47,7 @@ class Session {
            echo json_encode([
                "success"=> true,
            ]);
-           exit;
+           return;
        }
        echo json_encode([
            "success"=> false,
