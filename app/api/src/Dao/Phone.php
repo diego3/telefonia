@@ -7,7 +7,7 @@ use PhoneApp\DataBase;
 
 class Phone {
 
-  protected $conn;
+  public $conn;
 
   public function __construct(\PDO $dataBaseConnection){
       $this->conn = $dataBaseConnection;

@@ -24,7 +24,7 @@ class Phone {
     }
 
     /**
-     * Traz todos telefones de uma determinado usuário
+     * Traz todos telefones de um determinado usuário
      */
     public function user(){
         if(!isset($_SESSION["userid"])){
@@ -45,18 +45,18 @@ class Phone {
 
 
     public function insert(){
-       //validar retornando o status e a mensagem de erro
         $number = $_POST["number"];
         $userid = $_POST["user"];
 
-        if(empty($number)){
-
+        if(empty($number) || empty($userid)){
+             echo json_encode([
+                "success"    => false,
+                "validation" => "The phone number and user id can't be empty both! "
+            ]);
+            return;
         }
-        if(empty($userid)){
 
-        }
-
-        $dao = Factory::createPhoneDao();
+        $dao   = Factory::createPhoneDao();
         $phone = new PhoneModel();
 
         $phone->setNumber($number)->setUser($userid);

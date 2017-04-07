@@ -7,6 +7,7 @@ use PhoneApp\Rest\Phone;
 use PhoneApp\Rest\Session;
 use Httpful\Request;
 use Httpful\Mime;
+use PhoneApp\Factory;
 
 /**
  * @covers \PhoneApp\Rest\Phone
@@ -32,7 +33,7 @@ class PhoneTest extends TestCase
           ob_end_clean(); 
           $response = json_decode($obj);
           
-          $this->assertEquals(4, count($response->result), "The admin user should have 4 phones");
+          $this->assertTrue( count($response->result) > 1, "The admin user should have a few phones when made a search");
      }
 
      /**
@@ -75,10 +76,31 @@ class PhoneTest extends TestCase
           ob_end_clean();
           $response = json_decode($obj);
 
-          $this->assertEquals(4, count($response->phones));
+          $this->assertTrue(count($response->phones) > 1, "The admin should have at least 2 phones ");
      }
 
+     /**
+      * @covers \PhoneApp\Rest\Phone::insert
+      */
+     public function testInsertShouldBeSuccess(){
+          $pdo = Factory::createDbConnection();
+          $pdo->beginTransaction();
 
+          $_POST["number"] = "43 3542-8585"; 
+          $_POST["user"]   = 3;//administrator
+
+          ob_start();
+          $rest = new Phone();
+          $rest->insert();
+          $obj = ob_get_contents();
+          ob_end_clean();
+          $json = json_decode($obj);
+
+          $this->assertTrue($json->success, "The insert did fail");
+          $this->assertTrue(!empty($json->last_id), "The last id wasn't returned");
+
+          $pdo->rollBack();
+     }
 
      /**
       * @covers \PhoneApp\Rest\Phone::user
