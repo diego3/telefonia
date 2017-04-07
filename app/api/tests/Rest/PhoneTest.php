@@ -15,6 +15,10 @@ class PhoneTest extends TestCase
      //  http://phphttpclient.com/
      protected $host = "localhost:8542/api/";
 
+     /**
+      * 
+      * @covers \PhoneApp\Rest\Phone::search
+      */
      public function testSearchEndPointShouldReturn4Phones(){
           $resource = "phone/search?q=diego";
           $response = Request::get($this->host.$resource)->expectsJson()->send();

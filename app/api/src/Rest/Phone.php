@@ -23,6 +23,9 @@ class Phone {
         ]);
     }
 
+    /**
+     * Traz todos telefones de uma determinado usuário
+     */
     public function user(){
         //echo json_encode(["session" => $_SESSION]); exit;
         if(!isset($_SESSION["userid"])){

@@ -8,7 +8,7 @@ use PhoneApp\Dao\User;
 use PhoneApp\Dao\Phone;
 
 /**
- * @covers Factory
+ * @covers \PhoneApp\Factory
  */
 class FactoryTest extends TestCase
 {

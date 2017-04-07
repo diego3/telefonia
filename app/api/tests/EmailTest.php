@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use PhoneApp\Email;
 
 /**
- * @covers Email
+ * @covers \PhoneApp\Email
  */
 class EmailTest extends TestCase
 {
