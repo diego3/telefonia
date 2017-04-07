@@ -15,5 +15,5 @@ services:
   - mysql
 
 script:
-  -  php -S 127.0.0.1:8542 -t app/api & 
+  - php -S 127.0.0.1:8542 -t app/api & 
   - phpunit app/api/tests

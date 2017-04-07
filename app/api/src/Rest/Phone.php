@@ -24,16 +24,17 @@ class Phone {
     }
 
     public function user(){
-        $id = $_SESSION["userid"];
-
-        if(empty($id)){
+        //echo json_encode(["session" => $_SESSION]); exit;
+        if(!isset($_SESSION["userid"])){
             echo json_encode([
-              "phones" => []
+               "phones" => [],
+               "auth_error" => "Invalid user id"
             ]);
+            exit;
         }
 
         $dao = Factory::createPhoneDao();
-        $phones = $dao->byUserIdAsArray($id);
+        $phones = $dao->byUserIdAsArray($_SESSION["userid"]);
 
         echo json_encode([
             "phones" => $phones
