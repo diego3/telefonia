@@ -45,8 +45,8 @@ class Phone {
 
 
     public function insert(){
-        $number = $_POST["number"];
-        $userid = $_POST["user"];
+        $number = isset($_POST["number"]) ? $_POST["number"] : 0;
+        $userid = isset($_POST["user"]) ? $_POST["user"] : 0;
 
         if(empty($number) || empty($userid)){
              echo json_encode([
@@ -70,8 +70,8 @@ class Phone {
 
     public function update($id){
         parse_str(file_get_contents("php://input"), $_PUT);
-        $id  = $_PUT["id"];
-        $new = $_PUT["num"];
+        $id  = isset($_PUT["id"]) ? $_PUT["id"] : 0;
+        $new = isset($_PUT["num"]) ? $_PUT["num"] : null;
 
         if(empty($id) || empty($new)){
             echo json_encode([
