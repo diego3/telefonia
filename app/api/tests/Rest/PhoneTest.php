@@ -183,46 +183,4 @@ class PhoneTest extends TestCase
           $this->assertTrue(isset($json2->phone_number));
           $this->assertEquals($new_phone_number, $json2->phone_number);
      }
-
-
-
-
-
-     /*
-     $data = "id=".$phoneid."num=".$new_phone_number;
-     $data_len = strlen($data);
-     /* create a stream context telling PHP to overwrite the file
-     $stream = stream_context_create(array('http' => array(
-       'method'        => "PUT",
-       'header'        => "Content-Type: application/x-www-form-urlencoded\r\nContentLength: $data_len\r\n",
-       'timeout'       => 60.0,
-       'ignore_errors' => true, # return body even if HTTP status != 200
-       'content'       => $data
-     )));
-     file_put_contents("php://input", $data, 0, $stream);
-     */
-     /**
-      * @covers \PhoneApp\Rest\Phone::user
-      * @covers \PhoneApp\Rest\Session::login
-      */
-     /*public function testFindUserPhonesShouldReturnOk(){
-          $email = "admin@admin.com";
-          $password = "admin";
-          $response = Request::post($this->host."session/login")
-                         ->mime(Mime::FORM)
-                         ->body("email=".$email."&password=".$password)
-                         ->send();
-          var_dump($response->body);
-          $this->assertTrue(!empty($response->body));
-
-          $resource = "phone/user";
-          $response = Request::get($this->host.$resource)->expectsJson()->send();
-
-          //$phones = $response->body->phones;
-          //var_dump($response->body);
-          $this->assertTrue(!empty($response->body->phones), "User phones can't be empty after login success!");
-          //unset($_SESSION["userid"]);
-     }*/
-
-
 }
