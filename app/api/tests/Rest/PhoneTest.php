@@ -150,7 +150,7 @@ class PhoneTest extends TestCase
          $content = ob_get_contents();
          ob_end_clean();
          $json_resp = json_decode($content);
-        
+
          $this->assertTrue(isset($json_resp->phone_number));
      }
 
@@ -165,18 +165,17 @@ class PhoneTest extends TestCase
           $_POST["id"] = $phoneid;
           $_POST["num"] = $new_phone_number;
 
-          /*ob_start();
+          ob_start();
           $rest = new Phone();
           $rest->update($phoneid);
           $obj = ob_get_contents();
           ob_end_clean();
           $json = json_decode($obj);
 
-          $this->assertTrue($json->success);*/
+          $this->assertTrue($json->success);
 
           ob_start();
-          $rest2 = new Phone();
-          $rest2->read($phoneid);
+          $rest->read($phoneid);
           $obj2 = ob_get_contents();
           ob_end_clean();
           $json2 = json_decode($obj2);
