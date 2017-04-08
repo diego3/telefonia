@@ -70,8 +70,13 @@ class Phone {
 
     public function update($id){
         parse_str(file_get_contents("php://input"), $_PUT);
+
         $id  = isset($_PUT["id"]) ? $_PUT["id"] : 0;
         $new = isset($_PUT["num"]) ? $_PUT["num"] : null;
+        if(empty($id) || empty($new)){
+            $id  = isset($_POST["id"]) ? $_POST["id"] : 0;
+            $new = isset($_POST["num"]) ? $_POST["num"] : null;
+        }
 
         if(empty($id) || empty($new)){
             echo json_encode([
@@ -81,14 +86,11 @@ class Phone {
             return;
         }
 
-         $dao = Factory::createPhoneDao();
+         $dao   = Factory::createPhoneDao();
          $phone = new PhoneModel();
-
          $phone->setNumber($new);
          $phone->setId($id);
-
          $success = $dao->update($phone);
-
          echo json_encode([
              "success" => $success
          ]);
@@ -125,10 +127,11 @@ class Phone {
         }
 
         $dao = Factory::createPhoneDao();
-        $phone = $dao->byId($id, true);
+        $phone = $dao->byId($id);
 
         echo json_encode([
-            "phone" => $phone
+            "phone_id" => $phone->getId(),
+            "phone_number" => $phone->getNumber()
         ]);
     }
 }

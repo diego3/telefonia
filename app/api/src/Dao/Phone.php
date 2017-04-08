@@ -135,20 +135,25 @@ class Phone {
   }
 
   public function byId($phoneid){
-        $statement = $this->conn->prepare("select * from phones where telefoneid = :id");
-        $statement->bindValue(":id", $phoneid);
-        $statement->execute();
+      try{
+          $statement = $this->conn->prepare("select * from phones where telefoneid = :id");
+          $statement->bindValue(":id", $phoneid);
+          $statement->execute();
 
-        $row = $statement->fetch(\PDO::FETCH_OBJ);
-        if(empty($row)){
+          $row = $statement->fetch(\PDO::FETCH_OBJ);
+          if(empty($row)){
+              return null;
+          }
+      }catch(\PDOException $e){
+          //$e->getMessage();
           return null;
-        }
+      }
 
-        $phone = new PhoneModel();
-        $phone->setId($row->telefoneid);
-        $phone->setNumber($row->phonenum);
-        $phone->setUser($row->userid);
-        return $phone;
+      $phone = new PhoneModel();
+      $phone->setId($row->telefoneid);
+      $phone->setNumber($row->phonenum);
+      $phone->setUser($row->userid);
+      return $phone;
   }
 
 }
