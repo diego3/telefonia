@@ -37,3 +37,9 @@ Now you can use codeceptjs to run the tests
 cd app/e2e
 codeceptjs run --steps
 ```
+
+
+npm install -g codeceptjs
+npm install -g webdriverio
+http://codenroll.it/acceptance-testing-with-codecept-js/
+http://codecept.io/acceptance/
