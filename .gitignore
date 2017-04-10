@@ -6,3 +6,4 @@ node_modules/
 build/
 temp/
 cache/
+app/e2e/logs/
