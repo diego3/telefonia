@@ -2,3 +2,7 @@ vendor/
 .phpintel/
 phpcoverage/
 composer.lock
+node_modules/
+build/
+temp/
+cache/
