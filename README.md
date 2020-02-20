@@ -9,14 +9,14 @@ Without that the tests will fail!
 How to run the phpunit tests
 ===========
 ```bash
-phpunit app/api/tests  --testdox
+vendor/bin/phpunit app/api/tests  --testdox
 ```
 
 
 How to run the phpunit code coverage
 ===========
 ```bash
-phpunit app/api/tests  --coverage-html ./phpcoverage
+vendor/bin/phpunit app/api/tests  --coverage-html ./phpcoverage
 ```
 
 
@@ -29,7 +29,7 @@ app/e2e/phantomjs --webdriver=4444
 ```
 After that, you will need to start the php built in server
 ```bash
-php -S 127.0.0.1:8542
+php -S 127.0.0.1:8542 -t app/api
 ```
 
 Now you can use codeceptjs to run the tests

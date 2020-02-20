@@ -19,13 +19,14 @@ $uri    = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
 if(empty($uri) || strpos($uri, "api") === false){
-     http_response_code(404, "Invalid API access");
+     http_response_code(404);
      exit;
 }
 
 $parts = explode("/", $uri);
 $id = null;
 
+$resource = null;
 if(count($parts) == 3){
     require __DIR__."/src/Rest/".ucfirst($parts[2]).".php";
     $resource = "PhoneApp\\Rest\\". ucfirst($parts[2]);
@@ -34,6 +35,12 @@ else if(count($parts) == 4){
     require __DIR__."/src/Rest/".ucfirst($parts[2]).".php";
     $resource = "PhoneApp\\Rest\\". ucfirst($parts[2]);
     $id = $parts[3];
+}
+
+if( empty($resource)) {
+  echo 'resource not found';
+  http_response_code(404);
+  exit;
 }
 
 $rest = new $resource;
